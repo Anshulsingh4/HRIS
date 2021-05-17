@@ -1,0 +1,40 @@
+.login {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29ya2luZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    background-size: cover;
+    background-position: center;
+    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+.newuser {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fG9mZmljZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    background-size: cover;
+    background-position: center;
+    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+
+/* https://unsplash.com/photos/SYTO3xs06fU */
+
+.cardlogin {
+    display: flex;
+    position: absolute;
+    bottom: 350px;
+    left: 750px;
+    height: 45%;
+    width: 100%;
+  }
+  
+.wrapper {
+    text-align: right;
+}
+
+.btn1{
+    position: absolute;
+    top: 50%;
+}

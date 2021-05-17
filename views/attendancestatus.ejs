@@ -1,0 +1,51 @@
+<style>
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+</style>
+<% layout('layouts/boilerplate') %>
+    <h1 style="text-align: center;">Attendance Status</h1>
+    <div class="containter d-flex flex-column justify-content-center mt-5">
+
+        <table>
+            <tr>
+                <th>Time</th>
+                <th>Punch-Request</th>
+                <th>Status</th>
+                <th>Cancel</th>
+            </tr>
+
+            <% for(let attend of user.attendance) { %>
+                <form action="attendancestatus/<%= attend._id%>" method="POST">
+                    <tr>
+                        <td>
+                            <%= String(attend.time).slice(0,24) %>
+                        </td>
+                        <td>
+                            <%= attend.check %>
+                        </td>
+                        <td>
+                            <%= attend.status %>
+                        </td>
+                        <% if(attend.status !=='Approved' ) { %>
+                            <td>
+                                <button class='btn btn-warning'>Cancel</button>
+                            </td>
+                            <% } else { %>
+                                <td>
+                                    Not cancellable
+                                </td>
+                                <% } %>
+                    </tr>
+                </form>
+                <% } %>
+        </table>
+
+    </div>
+    <br><br><br><br><br>
+    <div class="containter">
+        <a href="/home" class="btn btn-danger ">Back to home</a>
+    </div>

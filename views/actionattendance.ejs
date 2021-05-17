@@ -1,0 +1,118 @@
+<style>
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #adadad;
+    }
+
+    .btnaction {
+        padding: auto;
+        /* margin-left: 520px; */
+        height: 40px;
+        width: 170px;
+        margin-top: 20px;
+        display: inline-block;
+    }
+
+    .btnaction1 {
+        padding: auto;
+        margin-left: 560px;
+        height: 40px;
+        width: 170px;
+        margin-top: 20px;
+        display: inline-block;
+    }
+</style>
+<% layout('layouts/boilerplate') %>
+    <h1 style="text-align: center;">Action to Attendance Requests</h1>
+
+    <div class="containter d-flex flex-column justify-content-center mt-5">
+        <table>
+            <tr>
+                <th>Employee Name</th>
+                <th>Time</th>
+                <th>Punch-Request</th>
+                <th>Status</th>
+                <th>Approve</th>
+
+            </tr>
+            <% cnt=0;for(let user of users) { %>
+                <% let flag=true %>
+                    <% if(user.attendance.length>0){ %>
+                        <tr>
+                            <td class='username'>
+                                <%= user.username.toUpperCase() %>
+
+                            </td>
+                            <% } %>
+
+                                <% for(let attend of user.attendance) { %>
+                                    <% if(attend.status !=='Approved' ){ %>
+                                        <form action="/actionattendance/<%=attend._id  %> " method="POST"
+                                            class="validated-form" novalidate>
+                                            <% cnt+=1 %>
+                                                <% if(!flag){ %>
+                                                    <td></td>
+                                                    <% } else {%>
+                                                        <% flag=false} %>
+
+                                                            <td>
+                                                                <%= String(attend.time).slice(0,24) %>
+                                                            </td>
+                                                            <td>
+                                                                <%= attend.check %>
+                                                            </td>
+                                                            <td>
+                                                                <%= attend.status %>
+                                                            </td>
+                                                            <td>
+                                                                <button class='btn btn-success'>Approve</button>
+                                                            </td>
+                                        </form>
+
+                        </tr>
+                        <% } %>
+                            <% } %>
+
+                                </td>
+
+                                <% } %>
+        </table>
+
+    </div>
+    <a href="/home" class="btn btn-danger btnaction py-2">Back to home</a>
+
+    <!-- Select and Deselect -->
+
+
+    <!-- <div class=" d-flex justify-content-between mt-3">
+        <button class="btn btn-primary btnaction" onclick='selects()' value="Select All">Select All</button>
+        <a href="/home" class="btn btn-danger btnaction py-2">Back to home</a>
+        <button class="btn btn-info btnaction " onclick='deSelect()' value="Deselect All">Deselect All</button>
+
+
+    </div>
+
+
+    <script type="text/javascript">
+        function selects() {
+            var ele = document.getElementsByName('chk');
+            for (var i = 0; i < ele.length; i++) {
+                if (ele[i].type == 'checkbox')
+                    ele[i].checked = true;
+            }
+        }
+        function deSelect() {
+            var ele = document.getElementsByName('chk');
+            for (var i = 0; i < ele.length; i++) {
+                if (ele[i].type == 'checkbox')
+                    ele[i].checked = false;
+
+            }
+        }
+    </script> -->

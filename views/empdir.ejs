@@ -1,0 +1,14 @@
+<style>
+    body {
+        background-color: rgba(0, 0, 0, 0.7)
+    }
+</style>
+<% layout('layouts/boilerplate') %>
+    <div class="container">
+        <form action="/empdir" method="POST">
+            <label for="name"> <strong> Enter the Username:</strong> </label>
+            <input type="text" name="name" id='name' placeholder="Search by Username" required autofocus>
+            <button class='btn btn-primary'>Search</button>
+        </form>
+        <a href="/home" class="btn btn-danger  mt-3">Back to home</a>
+    </div>

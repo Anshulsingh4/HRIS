@@ -1,0 +1,53 @@
+<style>
+    td,
+    th {
+        border: 1px solid #000;
+        text-align: center;
+        padding: 8px;
+    }
+</style>
+<% layout('layouts/boilerplate') %>
+    <div class="container">
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Employee Name</th>
+                <th>Role</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <% for(let user of alluser) {%>
+                <tr>
+
+                    <td>
+                        <%= user.id %>
+                    </td>
+                    <td>
+                        <%= user.fullname %>
+                    </td>
+                    <td>
+                        <%= user.role %>
+                    </td>
+                    <td>
+                        <%= user.gender %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <td>
+                        <a href="/edit/<%=user._id %> " class='btn btn-info'>Edit</a>
+                    </td>
+                    <form action="/alluser/<%=user._id%>" method="POST">
+                        <td>
+                            <button class=" btn btn-danger">Delete</button>
+                        </td>
+                    </form>
+
+                </tr>
+                <% }%>
+        </table>
+        <a href="/home" class='btn btn-danger mt-5'> Back to home</a>
+    </div>

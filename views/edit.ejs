@@ -1,0 +1,100 @@
+<style>
+    body {
+        background-color: rgba(0, 0, 0, 0.7)
+    }
+
+    .carddetail {
+        display: flex;
+        position: absolute;
+        bottom: 350px;
+        left: 650px;
+        top: 100px;
+        height: 850px;
+        width: 100%;
+    }
+</style>
+<% layout('layouts/boilerplate')%>
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <div class="card shadow carddetail" style="width: 35rem">
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-center">EDIT USER</h5>
+                        <form action="/edit/<%=user._id%>" method="POST" class="validated-form" novalidate>
+                            <% if(detail.type==='admin' ) { %>
+                                <div class="mb-3">
+                                    <label class="form-label" for="id">ID</label>
+                                    <input class="form-control" type="text" id="id" name="id" value="<%= user.id%>"
+                                        required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="username">Username</label>
+                                        <input class="form-control" type="text" id="username" name="username"
+                                            value="<%= user.username%>" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="fullname">Full Name</label>
+                                        <input class="form-control" type="text" id="fullname" name="fullname"
+                                            value="<%= user.fullname%>" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="contactNumber">Contact Number</label>
+                                        <input class="form-control" type="text" id="contactNumber" name="contactNumber"
+                                            value="<%= user.contactNumber%>" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="department">Department</label>
+                                        <input class="form-control" type="text" id="department" name="department"
+                                            value="<%= user.department%>" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="role">Role</label>
+                                        <input class="form-control" type="text" id="role" name="role"
+                                            value="<%= user.role%>" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="dob">Date of birth</label>
+                                        <input class="form-control" type="text" id="dob" name="dob"
+                                            value="<%= user.dob%>" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input class="form-control" type="email" id="email" name="email"
+                                            value="<%= user.email%>" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-success btn-block mb-3">Update</button>
+                        </form>
+                        <a href="/home" class="btn btn-danger btn-block mt-3">Back to home</a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

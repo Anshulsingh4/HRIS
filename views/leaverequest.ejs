@@ -1,0 +1,46 @@
+<style>
+    .carddetail {
+        display: flex;
+        position: absolute;
+        bottom: 350px;
+        left: 600px;
+        top: 150px;
+        height: 45%;
+        width: 100%;
+    }
+</style>
+<% layout('layouts/boilerplate')%>
+    <div class="container fulldetails">
+        <div class="row">
+            <div class="col-md-6 mt-5">
+                <div class="card shadow   carddetail " style="width: 35rem; height: 40rem">
+                    <div class="card-body">
+                        <h2 class="card-title d-flex justify-content-center ">Leave Request</h2>
+                        <form action="/leaverequest" method="POST" class="validated-form" novalidate>
+                            <div class="d-flex flex-column justify-content-evenly" style="height: 30rem">
+                                <div class="mb-3">
+                                    <label class="form-label" for="datefrom">From</label>
+                                    <input class="form-control" type="date" id="datefrom" name="datefrom" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="dateto">To</label>
+                                    <input class="form-control" type="date" id="dateto" name="dateto" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="requesttype" class="form-lable">Request Type</label>
+                                    <select class="form-control mt-2" name="requesttype" id="requesttype" required>
+                                        <option value="" disabled selected hidden>Select a option</option>
+                                        <option value="pl">Paid Leave</option>
+                                        <option value="sl">Sick Leave</option>
+                                        <option value="bl">Birthday Leave</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-success btn-block">Submit</button>
+                                <a href="/home" class="btn btn-danger btn-block">Back to home</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

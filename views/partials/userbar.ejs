@@ -1,0 +1,87 @@
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Button used to open the contact form - fixed at the bottom of the page */
+    .open-button {
+        background-color: #555;
+        color: white;
+        border: none;
+        cursor: pointer;
+        position: fixed;
+    }
+
+    /* The popup form - hidden by default */
+    .form-popup {
+        display: none;
+        position: fixed;
+        border: 3px solid black;
+        z-index: 1;
+        background-color: #fae298;
+        width: 400px;
+        height: 200px;
+        margin-top: 56px;
+    }
+
+    .btnclose {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+
+
+<div class="d-flex flex-row justify-content-between block-inline py-0" style=" background-color:#2698D4">
+    <div class="p-2 bd-highlight my-0">
+        <a href="/home"><img src="https://res.cloudinary.com/anshulsingh4/image/upload/v1621233338/bigstep_fd67gg.png"
+                style="width: 100px; height: 40px;"></a>
+    </div>
+    <% if(detail.type==='user' ) { %>
+        <a href="/empdir" class='btn btn-success my-2'>Employee Directory</a>
+        <form action=<%=`/home/${detail.id}`%> method="POST">
+            <button onclick="popupFunction()" class='btn btn-secondary my-2 open-button'
+                style="background-color: #F36F46; font-weight: 400;">
+                Mark Attendance
+            </button>
+            <div class='form-popup card shadow px-3 py-3' id="myForm">
+                <h2 style="text-align: center;">Punching Status</h2>
+                <% const time=new Date(); %>
+                    <span>
+                        <%= `Punching time: ${time.getHours()}:${time.getMinutes()}`%>
+                            <p class="mb-4">Your first punch consider as Punch-in and another punch consider as
+                                Punch-out
+                            </p>
+                    </span>
+                    <div>
+                        <button type="button" onclick="closeFunction()" class="btn btn-danger btnclose">Cancel</button>
+                    </div>
+            </div>
+        </form>
+        <% } %>
+            <div class="dropdown show">
+                <a class="btn btn-secondary btn-danger dropdown-toggle mt-2 mr-8" href="#" role="button"
+                    id="dropdownUser1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= detail.username.toUpperCase() %>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-light dropdown-menu-right text-small shadow"
+                    aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="/fulldetails">Profile</a></li>
+                    <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+                </ul>
+            </div>
+</div>
+<script>
+    function popupFunction() {
+        document.getElementById("myForm").style.display = "block";
+
+    }
+    function closeFunction() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>
